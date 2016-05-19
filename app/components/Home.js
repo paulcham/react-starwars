@@ -11,7 +11,6 @@ function Home () {
                 <h1>Star Wars Reference</h1>
                 <p className='lead'>A React app to retrieve data from the Star Wars API</p>
             </div>
-            <p>Begin by choosing what type of item you'd like to see more about:</p>
             <RootItemTypeContainer />
             <ItemGroupContainer />
             <ItemDetailsContainer />
