@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var RootItemTypeContainer = require('../containers/RootItemTypeContainer');
+var ItemGroupContainer = require('../containers/ItemGroupContainer');
+var ItemDetailsContainer = require('../containers/ItemDetailsContainer');
 
 function Home () {
     return (
@@ -11,6 +13,8 @@ function Home () {
             </div>
             <p>Begin by choosing what type of item you'd like to see more about:</p>
             <RootItemTypeContainer />
+            <ItemGroupContainer />
+            <ItemDetailsContainer />
         </div>
     )
 }
