@@ -1,6 +1,5 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var capitalize = require('../styles').capitalize;
 
 
 var RootItemTypes = React.createClass({
@@ -8,7 +7,7 @@ var RootItemTypes = React.createClass({
         return (
             <ul>
             {this.props.rootItemTypes.map(function(rootItem, index) {
-                return <li className="list-group-item" style={capitalize} key={index}>{rootItem}</li>;
+                return <li className="list-group-item text-capitalize" key={index}>{rootItem}</li>;
             })}
             </ul>
         )
