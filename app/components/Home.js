@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var RootItemTypeContainer = require('../containers/RootItemTypeContainer');
-var ItemGroupContainer = require('../containers/ItemGroupContainer');
+var ItemGroupsContainer = require('../containers/ItemGroupsContainer');
 var ItemDetailsContainer = require('../containers/ItemDetailsContainer');
 
 function Home () {
@@ -13,7 +13,7 @@ function Home () {
                 <p><a href="https://swapi.co/">https://swapi.co/</a></p>
             </div>
             <RootItemTypeContainer />
-            <ItemGroupContainer />
+            <ItemGroupsContainer />
             <ItemDetailsContainer />
         </div>
     )

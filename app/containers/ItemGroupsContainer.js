@@ -1,33 +1,33 @@
 var React = require('react');
 var $ = require('jquery');
-var RootItemTypes = require('../components/RootItemTypes');
+var ItemGroups = require('../components/ItemGroups');
 var swapiHelpers = require('../utils/swapiHelpers');
 
 
-var RootItemTypeContainer = React.createClass({
+var ItemGroupsContainer = React.createClass({
   getInitialState: function () {
     return {
       isLoading: true,
-      rootItemTypes: [],
+      itemGroups: [],
     }
   },
   componentDidMount: function() {
     this.serverRequest = $.get('http://swapi.co/api/', function (types) {
       this.setState({
         isLoading: false,
-        rootItemTypes: Object.keys(types)
+        itemGroups: Object.keys(types)
       });
     }.bind(this));
   },
   render: function () {
         return (
             <div className='col-sm-4'>
-                <RootItemTypes
+                <ItemGroups
                     isLoading={this.state.isLoading}
-                    rootItemTypes={this.state.rootItemTypes} />
+                    itemGroups={this.state.itemGroups} />
             </div>
         )
     }
 });
 
-module.exports = RootItemTypeContainer;
+module.exports = ItemGroupsContainer;
