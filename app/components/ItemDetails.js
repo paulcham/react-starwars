@@ -11,9 +11,13 @@ var ItemDetails = React.createClass({
                 {this.props.detailsLoading === true
                 ? <p>LOADING</p>
                 : <ul>
-                    <li className="list-group-item">Episode {itemDetails.episode_id}: {itemDetails.title}</li>
-                    <li className="list-group-item">Released: {itemDetails.release_date}</li>
-                    <li className="list-group-item">Director: {itemDetails.director}</li>
+
+                    {Object.keys(itemDetails).map(function(key) {
+                        return <li
+                            className="list-group-item text-capitalize"
+                            key={key}>{key}: {itemDetails[key]}</li>
+                    }.bind(this))}
+
                 </ul>}
             </div>
         )

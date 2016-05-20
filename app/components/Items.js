@@ -4,7 +4,6 @@ var PropTypes = React.PropTypes;
 
 var Items = React.createClass({
     render: function () {
-        console.log(this.props.items)
         return (
             <div>
                 <h1>Items</h1>
@@ -12,13 +11,14 @@ var Items = React.createClass({
                 ? <p>LOADING</p>
                 : <ul>
                     {this.props.items.map(function(item, index) {
-                        return (
-                            <li className="list-group-item text-capitalize" key={index}>
+                        return <li
+                                className="list-group-item text-capitalize"
+                                key={index}
+                                onClick={this.props.onItemChosen.bind(null,item.url)}>
                                 {!!item.name && item.name}
                                 {!!item.title && item.title}
                             </li>
-                        )
-                    })}
+                    }.bind(this))}
                 </ul>}
             </div>
         )
@@ -28,6 +28,7 @@ var Items = React.createClass({
 Items.propTypes = {
   itemsLoading: PropTypes.bool.isRequired,
   items: PropTypes.array.isRequired,
+  onItemChosen: PropTypes.func.isRequired,
 }
 
 module.exports = Items;

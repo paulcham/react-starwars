@@ -21,7 +21,8 @@ var contentContainer = React.createClass({
   },
   handleGroupChosen: function(groupUrl) {
     this.setState({
-        itemsLoading: true
+        itemsLoading: true,
+        itemDetails: {},
     });
     this.serverRequest = $.get(groupUrl, function (items) {
       this.setState({
@@ -37,7 +38,7 @@ var contentContainer = React.createClass({
     this.serverRequest = $.get(itemUrl, function (itemDetails) {
       this.setState({
         detailsLoading: false,
-        itemDetails: itemDetails.results
+        itemDetails: itemDetails
       });
     }.bind(this));
   },
@@ -53,19 +54,19 @@ var contentContainer = React.createClass({
   render: function () {
         return (
             <section>
-                <div className='col-sm-4'>
+                <div className='col-sm-3'>
                     <Groups
                         groupsLoading={this.state.groupsLoading}
                         groups={this.state.groups}
                         onGroupChosen={this.handleGroupChosen} />
                 </div>
-                <div className='col-sm-4'>
+                <div className='col-sm-3'>
                     <Items
-                        itemsLoading={this.state.groupsLoading}
+                        itemsLoading={this.state.itemsLoading}
                         items={this.state.items}
                         onItemChosen={this.handleItemChosen} />
                 </div>
-                <div className='col-sm-4'>
+                <div className='col-sm-6'>
                     <ItemDetails
                         detailsLoading={this.state.detailsLoading}
                         itemDetails={this.state.itemDetails} />

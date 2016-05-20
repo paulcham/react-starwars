@@ -4,7 +4,7 @@ var PropTypes = React.PropTypes;
 
 var Groups = React.createClass({
     render: function () {
-        groups = (this.props.groups);
+        groups = this.props.groups;
         return (
             <div>
                 <h1>Groups</h1>
@@ -15,7 +15,6 @@ var Groups = React.createClass({
                         return <li
                             className="list-group-item text-capitalize"
                             key={key}
-                            rootItemUrl={groups[key]}
                             onClick={this.props.onGroupChosen.bind(null,groups[key])}>{key}</li>
                     }.bind(this))}
                 </ul>}
