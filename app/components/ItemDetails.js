@@ -10,7 +10,7 @@ var ItemDetails = React.createClass({
                 <h1>Details</h1>
                 {this.props.detailsLoading === true
                 ? <p>LOADING</p>
-                : <ul>
+                : <ul className="text-left">
 
                     {Object.keys(itemDetails).map(function(key) {
                         return <li

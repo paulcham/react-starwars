@@ -17,12 +17,15 @@ var contentContainer = React.createClass({
       groups: {},
       items: [],
       itemDetails: {},
+      selectedGroup:'',
+      selectedItem:''
     }
   },
   handleGroupChosen: function(groupUrl) {
     this.setState({
         itemsLoading: true,
         itemDetails: {},
+        selectedGroup: groupUrl
     });
     this.serverRequest = $.get(groupUrl, function (items) {
       this.setState({
@@ -33,7 +36,8 @@ var contentContainer = React.createClass({
   },
   handleItemChosen: function(itemUrl) {
     this.setState({
-        detailsLoading: true
+        detailsLoading: true,
+        selectedItem: itemUrl
     });
     this.serverRequest = $.get(itemUrl, function (itemDetails) {
       this.setState({
@@ -41,6 +45,12 @@ var contentContainer = React.createClass({
         itemDetails: itemDetails
       });
     }.bind(this));
+  },
+  isGroupActive:function(value){
+    return 'btn '+((value===this.state.selectedGroup) ?'active':'default');
+  },
+  isItemActive:function(value){
+    return 'btn '+((value===this.state.selectedItem) ?'active':'default');
   },
 
   componentDidMount: function() {
@@ -58,13 +68,15 @@ var contentContainer = React.createClass({
                     <Groups
                         groupsLoading={this.state.groupsLoading}
                         groups={this.state.groups}
-                        onGroupChosen={this.handleGroupChosen} />
+                        onGroupChosen={this.handleGroupChosen}
+                        isGroupActive={this.isGroupActive} />
                 </div>
                 <div className='col-sm-3'>
                     <Items
                         itemsLoading={this.state.itemsLoading}
                         items={this.state.items}
-                        onItemChosen={this.handleItemChosen} />
+                        onItemChosen={this.handleItemChosen}
+                        isItemActive={this.isItemActive} />
                 </div>
                 <div className='col-sm-6'>
                     <ItemDetails

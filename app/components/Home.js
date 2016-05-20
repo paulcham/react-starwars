@@ -2,6 +2,7 @@ var React = require('react');
 var ReactRouter = require('react-router');
 var ContentContainer = require('../containers/ContentContainer');
 
+
 function Home () {
     return (
         <div className="col-sm-12 text-center">

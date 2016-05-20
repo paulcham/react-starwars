@@ -13,6 +13,7 @@ var Items = React.createClass({
                     {this.props.items.map(function(item, index) {
                         return <li
                                 className="list-group-item text-capitalize"
+                                className={this.props.isItemActive(item.url) + " list-group-item text-capitalize"}
                                 key={index}
                                 onClick={this.props.onItemChosen.bind(null,item.url)}>
                                 {!!item.name && item.name}
