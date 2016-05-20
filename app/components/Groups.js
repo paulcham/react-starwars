@@ -16,7 +16,7 @@ var Groups = React.createClass({
                             className="list-group-item text-capitalize"
                             key={key}
                             rootItemUrl={groups[key]}
-                            onClick={this.props.onTypeChosen.bind(null,groups[key])}>{key}</li>
+                            onClick={this.props.onGroupChosen.bind(null,groups[key])}>{key}</li>
                     }.bind(this))}
                 </ul>}
             </div>
@@ -27,7 +27,7 @@ var Groups = React.createClass({
 Groups.propTypes = {
   groupsLoading: PropTypes.bool.isRequired,
   groups: PropTypes.object.isRequired,
-  onTypeChosen: PropTypes.func.isRequired,
+  onGroupChosen: PropTypes.func.isRequired,
 }
 
 module.exports = Groups;

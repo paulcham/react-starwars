@@ -1,7 +1,7 @@
 var React = require('react');
 var $ = require('jquery');
 var Groups = require('../components/Groups');
-var ItemGroups = require('../components/ItemGroups');
+var Items = require('../components/Items');
 var ItemDetails = require('../components/ItemDetails');
 
 
@@ -11,30 +11,42 @@ var contentContainer = React.createClass({
   },
   getInitialState: function () {
     return {
-      groupsLoading: false,
-      itemsLoading: true,
+      groupsLoading: true,
+      itemsLoading: false,
       detailsLoading: false,
       groups: {},
-      itemGroups: [],
+      items: [],
       itemDetails: {},
     }
   },
-  handleTypeChosen: function(typeUrl) {
+  handleGroupChosen: function(groupUrl) {
     this.setState({
         itemsLoading: true
     });
-    this.serverRequest = $.get(typeUrl, function (groups) {
+    this.serverRequest = $.get(groupUrl, function (items) {
       this.setState({
         itemsLoading: false,
-        itemGroups: groups.results
+        items: items.results
       });
     }.bind(this));
   },
+  handleItemChosen: function(itemUrl) {
+    this.setState({
+        detailsLoading: true
+    });
+    this.serverRequest = $.get(itemUrl, function (itemDetails) {
+      this.setState({
+        detailsLoading: false,
+        itemDetails: itemDetails.results
+      });
+    }.bind(this));
+  },
+
   componentDidMount: function() {
-    this.serverRequest = $.get('http://swapi.co/api/', function (types) {
+    this.serverRequest = $.get('http://swapi.co/api/', function (groups) {
       this.setState({
         groupsLoading: false,
-        groups: types
+        groups: groups
       });
     }.bind(this));
   },
@@ -45,12 +57,13 @@ var contentContainer = React.createClass({
                     <Groups
                         groupsLoading={this.state.groupsLoading}
                         groups={this.state.groups}
-                        onTypeChosen={this.handleTypeChosen} />
+                        onGroupChosen={this.handleGroupChosen} />
                 </div>
                 <div className='col-sm-4'>
-                    <ItemGroups
+                    <Items
                         itemsLoading={this.state.groupsLoading}
-                        itemGroups={this.state.itemGroups} />
+                        items={this.state.items}
+                        onItemChosen={this.handleItemChosen} />
                 </div>
                 <div className='col-sm-4'>
                     <ItemDetails
