@@ -1,8 +1,6 @@
 var React = require('react');
 var ReactRouter = require('react-router');
-var RootItemTypeContainer = require('../containers/RootItemTypeContainer');
-var ItemGroupsContainer = require('../containers/ItemGroupsContainer');
-var ItemDetailsContainer = require('../containers/ItemDetailsContainer');
+var ContentContainer = require('../containers/ContentContainer');
 
 function Home () {
     return (
@@ -12,9 +10,7 @@ function Home () {
                 <p>A React app to retrieve data from the Star Wars API</p>
                 <p><a href="https://swapi.co/">https://swapi.co/</a></p>
             </div>
-            <RootItemTypeContainer />
-            <ItemGroupsContainer />
-            <ItemDetailsContainer />
+            <ContentContainer />
         </div>
     )
 }

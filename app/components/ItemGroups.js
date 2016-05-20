@@ -6,8 +6,8 @@ var ItemGroups = React.createClass({
     render: function () {
         return (
             <div>
-                <h1>Groups</h1>
-                {this.props.isLoading === true
+                <h1>Items</h1>
+                {this.props.groupsLoading === true
                 ? <p>LOADING</p>
                 : <ul>
                     {this.props.itemGroups.map(function(itemGroup, index) {
@@ -20,7 +20,7 @@ var ItemGroups = React.createClass({
 });
 
 ItemGroups.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
+  itemsLoading: PropTypes.bool.isRequired,
   itemGroups: PropTypes.array.isRequired,
 }
 
