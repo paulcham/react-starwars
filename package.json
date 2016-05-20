@@ -10,7 +10,6 @@
   "author": "Paul Chamberlain <paul@paulchamberlain.com> (http://paulchamberlain.com)",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.9.0",
     "jquery": "^2.2.3",
     "react": "^0.14.6",
     "react-addons-css-transition-group": "^0.14.6",
