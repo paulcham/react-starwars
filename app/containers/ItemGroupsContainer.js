@@ -1,10 +1,12 @@
 var React = require('react');
 var $ = require('jquery');
 var ItemGroups = require('../components/ItemGroups');
-var swapiHelpers = require('../utils/swapiHelpers');
 
 
 var ItemGroupsContainer = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
   getInitialState: function () {
     return {
       isLoading: true,
@@ -12,10 +14,10 @@ var ItemGroupsContainer = React.createClass({
     }
   },
   componentDidMount: function() {
-    this.serverRequest = $.get('http://swapi.co/api/', function (types) {
+    this.serverRequest = $.get('http://swapi.co/api/films/', function (groups) {
       this.setState({
         isLoading: false,
-        itemGroups: Object.keys(types)
+        itemGroups: groups.results
       });
     }.bind(this));
   },
