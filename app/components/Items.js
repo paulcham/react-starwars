@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
+var Spinner = require('react-spinkit');
 
 
 var Items = React.createClass({
@@ -8,7 +9,7 @@ var Items = React.createClass({
             <div>
                 <h1>Items</h1>
                 {this.props.itemsLoading === true
-                ? <p>LOADING</p>
+                ? <Spinner spinnerName='three-bounce' noFadeIn />
                 : <ul>
                     {this.props.items.map(function(item, index) {
                         return <li

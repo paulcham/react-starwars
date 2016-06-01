@@ -4,7 +4,6 @@ var Groups = require('../components/Groups');
 var Items = require('../components/Items');
 var ItemDetails = require('../components/ItemDetails');
 
-
 var contentContainer = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired

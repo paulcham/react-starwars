@@ -1,6 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-
+var Spinner = require('react-spinkit');
 
 var Groups = React.createClass({
     render: function () {
@@ -9,7 +9,7 @@ var Groups = React.createClass({
             <div>
                 <h1>Groups</h1>
                 {this.props.groupsLoading === true
-                ? <p>LOADING</p>
+                ? <Spinner spinnerName='three-bounce' noFadeIn />
                 : <ul>
                     {Object.keys(groups).map(function(key) {
                         return <li
