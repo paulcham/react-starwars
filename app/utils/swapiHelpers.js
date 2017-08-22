@@ -2,7 +2,7 @@ var axios = require('axios');
 
 var helpers = {
   getRootItemTypes: function () {
-    axios.get('http://swapi.co/api/')
+    axios.get('https://swapi.co/api/')
     .then(function (response) {
       return response.data;
     })
