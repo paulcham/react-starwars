@@ -53,7 +53,7 @@ var contentContainer = React.createClass({
   },
 
   componentDidMount: function() {
-    this.serverRequest = $.get('http://swapi.co/api/', function (groups) {
+    this.serverRequest = $.get('//swapi.co/api/', function (groups) {
       this.setState({
         groupsLoading: false,
         groups: groups
